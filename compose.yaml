@@ -1,0 +1,35 @@
+services:
+  ftt:
+    build:
+      context: .
+      dockerfile: Dockerfile.rocm
+
+    container_name: ftt-rocm
+
+    working_dir: /app
+
+    volumes:
+      - .:/app
+      - uv-cache:/root/.cache/uv
+
+    devices:
+      - /dev/kfd:/dev/kfd
+      - /dev/dri:/dev/dri
+
+    group_add:
+      - video
+
+    cap_add:
+      - SYS_PTRACE
+
+    security_opt:
+      - seccomp=unconfined
+
+    ipc: host
+    shm_size: "8G"
+
+    stdin_open: true
+    tty: true
+
+volumes:
+  uv-cache:
