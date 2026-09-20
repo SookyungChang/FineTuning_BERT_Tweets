@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ftt"
+version = "0.1.0"
+description = "BERT Transformer fine tuning by 640k tweets"
+requires-python = ">=3.12"
+dependencies = [
+    "duckdb",
+    "datasets",
+    "lingua-language-detector",
+    "scikit-learn",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ipykernel",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
