@@ -4,13 +4,15 @@ from pathlib import Path
 @dataclass
 class Config():
      SEED: int = 42
-     VERSION: str = "0.2.1"
+     VERSION: str = "1.0.0"
      F1_AVG: str = "macro"
 
 @dataclass
 class pathConfig:
     PROJECT_ROOT: Path = Path(__file__).resolve().parents[2]
     DATA_DIR: Path = PROJECT_ROOT / "data"
+    EXP_DIR: Path = PROJECT_ROOT / "saved_parameters"
+    SAVE_MODEL_PATH: Path = PROJECT_ROOT / "saved_models"
 
 @dataclass
 class bertConfig():
