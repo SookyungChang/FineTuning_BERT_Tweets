@@ -1,6 +1,6 @@
 # ~/src/ftt/data/build_dataset.py
 import duckdb
-from datasets import load_dataset, DatasetDict, load_from_disk
+from datasets import load_dataset, DatasetDict
 from ftt.config import pathConfig, Config
 config = Config()
 paths = pathConfig()
