@@ -1,0 +1,30 @@
+{
+    "trials150_sample100000": {
+        "best_params": {
+            "ngram_range": [
+                1,
+                2
+            ],
+            "min_df": 3,
+            "max_features": 29482,
+            "C": 1.1971788583250549
+        },
+        "f1_score": 0.7996885288925251,
+        "n_trials": 150,
+        "sample_size": 100000
+    },
+    "trials50_sample100000": {
+        "best_params": {
+            "ngram_range": [
+                1,
+                3
+            ],
+            "min_df": 16,
+            "max_features": 15642,
+            "C": 1.189139330881109
+        },
+        "f1_score": 0.7974988911849286,
+        "n_trials": 50,
+        "sample_size": 100000
+    }
+}
