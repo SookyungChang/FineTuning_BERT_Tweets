@@ -8,16 +8,28 @@ version = "0.1.0"
 description = "BERT Transformer fine tuning by 640k tweets"
 requires-python = ">=3.12"
 dependencies = [
-    "duckdb",
     "datasets",
-    "lingua-language-detector",
-    "scikit-learn",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
+preprocessing = [
+    "duckdb",
+    "lingua-language-detector",
+]
+
+baseline = [
+    "scikit-learn",
+    "optuna",
+]
+
 dev = [
     "ipykernel",
 ]
+
+training = [
+    
+]
+
 
 [tool.setuptools.packages.find]
 where = ["src"]
