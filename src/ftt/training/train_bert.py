@@ -4,11 +4,14 @@ import os
 # from being selected while still allowing a CPU fallback if CUDA is unavailable.
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
+from dotenv import load_dotenv
+load_dotenv()
+
 import torch
+import wandb
 from transformers import TrainingArguments
 from ftt.models.bert import BERTfinetuning
 from datasets import load_from_disk
-import wandb
 
 from ftt.config import bertConfig, Config, pathConfig
 
