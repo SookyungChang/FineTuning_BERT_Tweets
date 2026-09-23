@@ -9,6 +9,7 @@ description = "BERT Transformer fine tuning by 640k tweets"
 requires-python = ">=3.12"
 dependencies = [
     "datasets",
+    "dotenv",
 ]
 
 [dependency-groups]
@@ -27,7 +28,8 @@ dev = [
 ]
 
 training = [
-    
+    "transformers",
+    "evaluate",
 ]
 
 
