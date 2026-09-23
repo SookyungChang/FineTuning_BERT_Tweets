@@ -4,34 +4,38 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ftt"
-version = "0.1.0"
+version = "1.0.0"
 description = "BERT Transformer fine tuning by 640k tweets"
 requires-python = ">=3.12"
 dependencies = [
     "datasets",
     "dotenv",
-]
-
-[dependency-groups]
-preprocessing = [
+    "huggingface-hub",
     "duckdb",
     "lingua-language-detector",
-]
-
-baseline = [
     "scikit-learn",
     "optuna",
+    "transformers",
+    "evaluate",
+    "optimum[onnxruntime]>=1.16.0",
+    "sentence-transformers",
+    "torch",
+    "tqdm",
 ]
 
+[project.optional-dependencies]
 dev = [
     "ipykernel",
 ]
 
-training = [
-    "transformers",
-    "evaluate",
-]
+# uv CPU PyTorch stroage setting
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
 
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
