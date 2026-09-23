@@ -11,4 +11,6 @@ RUN uv pip install \
     accelerate>=1.1.0 \
     scikit-learn 
 
+    # After run the container -> uv pip install -e . --no-deps
+
 CMD ["bash"]
