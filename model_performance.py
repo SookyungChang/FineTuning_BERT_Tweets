@@ -9,12 +9,11 @@ paths = pathConfig()
 bases = baseConfig()
 berts = bertConfig()
 
-def compare_performance():
-
-    dataset = load_from_disk(
+dataset = load_from_disk(
         paths.DATA_DIR / "tweets_dataset"
     )
 
+def compare_performance():
     X_test = dataset["test"]["text"]
     y_test = dataset["test"]["label"]
 
@@ -40,4 +39,7 @@ def compare_performance():
     print(f"Test F1 score: Baseline {base_f1:.4f} | BERT {bert_f1:.4f}")
 
 if __name__ == "__main__":
-    compare_performance()
+    y_train = dataset['train']['label'] # 1214111
+    print(f"Number of tweets for training: {len(y_train)}")
+    # compare_performance()
+    # Test F1 score: Baseline 0.8167 | BERT 0.8649
