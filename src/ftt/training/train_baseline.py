@@ -7,12 +7,10 @@ from datasets import load_from_disk
 from sklearn.metrics import f1_score
 
 from ftt.models.baseline import build_model
-from ftt.config import baseConfig, Config, pathConfig
-
+from ftt.config import baseConfig, pathConfig
 
 paths = pathConfig()
-config = Config()
-base = baseConfig()
+base_config = baseConfig()
 
 
 def train():
@@ -38,7 +36,7 @@ def train():
     with open(history_path, "r", encoding="utf-8") as f:
         history = json.load(f)
 
-    exp_key = f"trials{base.N_TRIALS}_sample{base.SAMPLE_SIZE}"
+    exp_key = f"trials{base_config.N_TRIALS}_sample{base_config.SAMPLE_SIZE}"
 
     best_params = history[exp_key]["best_params"]
 
@@ -68,7 +66,7 @@ def train():
     f1 = f1_score(
         y_test,
         preds,
-        average=config.F1_AVG,
+        average=base_config.F1_AVG,
     )
 
     print(f"Test F1 score: {f1:.4f}")
@@ -76,14 +74,14 @@ def train():
     # -------------------------
     # 6. Save model
     # -------------------------
-    paths.SAVE_MODEL_PATH.mkdir(
+    paths.SAVED_MODELS_PATH.mkdir(
         exist_ok=True,
         parents=True,
     )
 
     model_path = (
-        paths.SAVE_MODEL_PATH
-        / f"tfidf_logreg_{config.VERSION}.pkl"
+        paths.SAVED_MODELS_PATH
+        / f"tfidf_logreg_{base_config.VERSION}.pkl"
     )
 
     with open(model_path, "wb") as f:
