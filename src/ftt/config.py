@@ -15,8 +15,8 @@ class pathConfig:
 @dataclass
 class bertConfig():
     HF_MODEL_NAME: str = "distilbert-base-uncased-finetuned-sst-2-english"
-    VERSION: str = "1.0.0"
-    NUM_EPOCHS: int = 1
+    VERSION: str = "1.0.1"
+    NUM_EPOCHS: int = 3
     F1_AVG: str = "macro"
     DROUP_OUT: float = 0.1
 
