@@ -19,6 +19,10 @@ class bertConfig():
     NUM_EPOCHS: int = 1
     F1_AVG: str = "macro"
     DROUP_OUT: float = 0.1
+
+    BATCH_SIZE: int = 32
+    MAX_LENGTH: int = 128
+
     FINED_TUNED_MODEL_NAME: str = field(init=False)
     def __post_init__(self):
         self.FINED_TUNED_MODEL_NAME = f"sweetguma/bert-sentiment-model-v{self.VERSION}"
